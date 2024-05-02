@@ -1,0 +1,30 @@
+{
+  "name": "template-email",
+  "version": "0.0.1",
+  "description": "A simple template based mailer package",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "url": "https://github.com/shazee257/template-email"
+  },
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "email",
+    "mailer",
+    "template"
+  ],
+  "author": "shazee257@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.14",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "nodemailer": "^6.9.13"
+  }
+}
