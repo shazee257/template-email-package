@@ -6,7 +6,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "repository": {
-    "url": "https://github.com/shazee257/template-email"
+    "url": "https://github.com/shazee257/template-email-package"
   },
   "scripts": {
     "build": "tsup"
