@@ -1,43 +1,76 @@
-## Mongoose Pagination & Aggregate
+## HTML Template based Email
 
-**Pagination Plugins:**
-- You're utilizing two pagination plugins provided by the `mongoose-pagination-v2` package: `mongoosePlugin` and `mongooseAggregatePlugin`. These plugins enhance your mongoose schema with pagination capabilities for regular queries and aggregate queries respectively.
+**Overview**
+- Template Email is a Node.js package designed to simplify sending emails with HTML templates. It provides a convenient way to dynamically fill in template placeholders with specific data and send emails using the Nodemailer library.
 
-**Pagination Methods:**
-- `getAggregatedPaginatedData`: This method is used to fetch paginated data from the MongoDB collection. It takes an object as an argument with properties like `model` (the mongoose model to query) and `query` (an array of query conditions). It returns paginated data based on the provided query conditions.
-- `getPaginatedData`: Though not explicitly used in your code, it's likely a similar method provided by the pagination package for fetching paginated data from regular (non-aggregated) queries.
+**Features**
+- Send emails with custom HTML templates.
+- Replace placeholders in templates with dynamic data.
+- Support for Gmail as the email service provider.
+- Error handling for template loading and email sending..
 
-These methods and plugins streamline pagination handling in your application, making it easier to implement and manage pagination for mongoose queries and aggregations.
+**Installation**
+- npm install template-email
+
+**Usage**
+- Import the EmailService class from the package.
+- Initialize an instance of EmailService with your Gmail credentials and the directory path to your email templates.
+- Use the sendMail method to send emails, providing necessary parameters such as recipient, subject, and template reference.
 
 
 ```javascript
-const mongoose = require('mongoose');
-const { mongoosePlugin, mongooseAggregatePlugin, getAggregatedPaginatedData, getPaginatedData } = require('mongoose-pagination-v2');
+const { EmailService } = require('template-email');
 
-const express = require('express');
-const app = express();
-
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log('Connected to MongoDB'))
-.catch((err) => console.log('Failed to connect to MongoDB', err));
-
-// any key value allowed
-const UserSchema = new mongoose.Schema({}, { strict: false });
-
-UserSchema.plugin(mongoosePlugin);
-UserSchema.plugin(mongooseAggregatePlugin);
-
-const UserModel = mongoose.model('User', UserSchema);
-
-app.get('/', async (req, res) => {
-    // pagination without aggregate query
-    // const data = await getPaginatedData({ model: UserModel, query: {}, page: 1, limit: 10 });
-
-    // pagination with aggregate query
-    const data = await getAggregatedPaginatedData({ model: UserModel, query: [], page: 1, limit: 10 });
-    res.send(data);
+// Initialize EmailService
+const emailService = new EmailService({
+    emailUser: 'your.email@gmail.com',
+    emailPassword: 'yourpassword',
+    emailTemplatesDirectory: './utils/email-templates' // Path to email templates
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+// Send email without HTML template
+emailService.sendMail({
+    to: 'recipient@example.com',
+    subject: 'Test Email',
+    html: '<p>This is a test email.</p>'
 });
+
+// Send email with HTML template
+emailService.sendMail({
+    to: 'recipient@example.com',
+    subject: 'Test Email',
+    templateRef: 'login',   // Reference to HTML template file
+    data: {
+        email: 'test123@gmail.com',
+        password: '123456',
+        frontendUrl: 'http://example.com'
+    }
+});
+
+
+
+// html code
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Credentials</title>
+</head>
+
+<body>
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2>User Login Credentials - ABC System</h2>
+        <p>Dear User,</p>
+        <p>Your login credentials for ABC System are as follows:</p>
+        <h1 style="color: #3498db; font-size: 1em;">email: {{email}}</h1>
+        <h1 style="color: #3498db; font-size: 1em;">password: {{password}}</h1>
+
+        <p>Use the above credentials to login at <a href="{{frontendUrl}}">ABC System</a></p>
+        <p>Thank you for using our service!</p>
+    </div>
+</body>
+
+</html>
