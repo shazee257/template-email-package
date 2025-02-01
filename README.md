@@ -44,11 +44,9 @@ emailService.sendMail({
     subject: 'Test Email',
     html: '<p>This is a test email.</p>'
 });
-```
 
-- Creating an Email Template
-<p>Create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }}</p>
-<strong>Example:</strong> login.html
+
+// create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }} e.g: login.html
 
 <!DOCTYPE html>
 <html lang="en">
