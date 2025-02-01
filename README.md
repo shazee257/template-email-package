@@ -46,7 +46,8 @@ emailService.sendMail({
 });
 ```
 
-// create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }} e.g: login.html
+**Create an HTML Template**
+- create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }} e.g: login.html
 ```javascript
 
 <!DOCTYPE html>
