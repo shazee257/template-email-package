@@ -49,27 +49,23 @@ emailService.sendMail({
 - Creating an Email Template
 <p>Create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }}</p>
 <strong>Example:</strong> login.html
-```md
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Login Credentials&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div style="max-width: 600px; margin: 0 auto; padding: 20px;"&gt;
-        &lt;h2&gt;User Login Credentials&lt;/h2&gt;
-        &lt;p&gt;Dear User,&lt;/p&gt;
-        &lt;p&gt;Your login credentials are:&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt; {{email}}&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Password:&lt;/strong&gt; {{password}}&lt;/p&gt;
-        &lt;p&gt;Login at: &lt;a href="{{frontendUrl}}"&gt;Click Here&lt;/a&gt;&lt;/p&gt;
-        &lt;p&gt;Thank you!&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-
-
-**License**
-<p>This project is licensed under the MIT License.</p>
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Credentials</title>
+</head>
+<body>
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2>User Login Credentials</h2>
+        <p>Dear User,</p>
+        <p>Your login credentials are:</p>
+        <p><strong>Email:</strong> {{email}}</p>
+        <p><strong>Password:</strong> {{password}}</p>
+        <p>Login at: <a href="{{frontendUrl}}">Click Here</a></p>
+        <p>Thank you!</p>
+    </div>
+</body>
+</html>
