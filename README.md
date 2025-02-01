@@ -1,7 +1,7 @@
-## Template Email - HTML Template Based Email Service
+## Template Email - HTML Template Based Email Service for Node.js Backend
 
 **Overview**
-- Template Email is a Node.js package that simplifies sending emails with HTML templates. It allows dynamic data binding within templates and uses Nodemailer for email delivery.
+- Template Email is a Node.js package that simplifies sending emails with HTML templates. It allows dynamic data binding within templates.
 
 **Features**
 - Send emails with custom HTML templates.
