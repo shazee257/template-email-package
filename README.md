@@ -69,6 +69,6 @@ emailService.sendMail({
     </div>
 </body>
 </html>
-```
+
 **License**
 <p>This project is licensed under the MIT License.</p>
