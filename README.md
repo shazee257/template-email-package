@@ -49,26 +49,26 @@ emailService.sendMail({
 - Creating an Email Template
 <p>Create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }}</p>
 <strong>Example:</strong> login.html
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Credentials</title>
-</head>
-<body>
-    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-        <h2>User Login Credentials</h2>
-        <p>Dear User,</p>
-        <p>Your login credentials are:</p>
-        <p><strong>Email:</strong> {{email}}</p>
-        <p><strong>Password:</strong> {{password}}</p>
-        <p>Login at: <a href="{{frontendUrl}}">Click Here</a></p>
-        <p>Thank you!</p>
-    </div>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Credentials</title>
+    </head>
+    <body>
+        <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+            <h2>User Login Credentials</h2>
+            <p>Dear User,</p>
+            <p>Your login credentials are:</p>
+            <p><strong>Email:</strong> {{email}}</p>
+            <p><strong>Password:</strong> {{password}}</p>
+            <p>Login at: <a href="{{frontendUrl}}">Click Here</a></p>
+            <p>Thank you!</p>
+        </div>
+    </body>
+    </html>
+
 
 **License**
 <p>This project is licensed under the MIT License.</p>
