@@ -44,9 +44,10 @@ emailService.sendMail({
     subject: 'Test Email',
     html: '<p>This is a test email.</p>'
 });
-
+```
 
 // create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }} e.g: login.html
+```javascript
 
 <!DOCTYPE html>
 <html lang="en">
