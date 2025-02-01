@@ -49,7 +49,7 @@ emailService.sendMail({
 - Creating an Email Template
 <p>Create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }}</p>
 <strong>Example:</strong> login.html
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,4 +69,3 @@ emailService.sendMail({
     </div>
 </body>
 </html>
-```
