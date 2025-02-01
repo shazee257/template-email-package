@@ -68,3 +68,7 @@ emailService.sendMail({
     </div>
 </body>
 </html>
+```
+
+**License**
+- MIT
