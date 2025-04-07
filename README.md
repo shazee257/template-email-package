@@ -5,9 +5,10 @@
 
 **Features**
 - Send emails with custom HTML templates.
+- Attachments support.
 - Replace placeholders in templates with dynamic data.
 - Support for Gmail as the email service provider.
-- Error handling for template loading and email sending..
+- Error handling for template loading and email sending.
 
 **Installation**
 - npm install template-email
