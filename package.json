@@ -1,6 +1,6 @@
 {
   "name": "template-email",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A simple template based mailer package",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
