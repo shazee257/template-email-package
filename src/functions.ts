@@ -41,7 +41,7 @@ export class EmailService {
         return result;
     }
 
-    async sendMail({ html, templateRef = "", data, to, subject }: sendEmailType): Promise<void> {
+    async sendMail({ html, templateRef = "", data, to, subject, attachments = [] }: sendEmailType): Promise<void> {
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: { user: this.emailUser, pass: this.emailPassword },
@@ -52,6 +52,7 @@ export class EmailService {
             to,
             subject,
             html: html || this.generateHTMLString(templateRef, data),
+            attachments: attachments,
         };
 
         try {

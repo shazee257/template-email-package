@@ -3,12 +3,20 @@ export interface bindEmailDataType {
     fileString: string;
 }
 
-export interface sendEmailType {
-    to: string;
-    subject: string;
-    html?: string | undefined;
+export type AttachmentType = {
+    filename?: string;
+    path?: string;
+    content?: Buffer | string;
+    contentType?: string;
+}
+
+export type sendEmailType = {
+    html?: string;
     templateRef?: string;
     data?: any;
+    to: string;
+    subject: string;
+    attachments?: AttachmentType[];
 }
 
 export interface EmailServiceType {
