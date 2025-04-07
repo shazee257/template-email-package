@@ -29,13 +29,18 @@ const emailService = new EmailService({
 ```javascript
 emailService.sendMail({
     to: 'recipient@example.com',
-    subject: 'Login Credentials',
-    templateRef: 'login', // Reference to the HTML template file eg. login.html
+    subject: 'Welcome!',
+    templateRef: 'welcome', // Reference to the HTML template file eg. welcome.html
     data: {
-        email: 'test123@gmail.com',
-        password: '123456',
-        frontendUrl: 'http://example.com'
-    }
+        username: "John Doe",
+        frontendUrl: 'https://www.example.com'
+    },
+    attachments: [
+        {
+            filename: "report.png",
+            path: "/public-accessable-file-path"
+        }
+    ]
 });
 ```
 - Sending an Email Without a Template
@@ -43,12 +48,18 @@ emailService.sendMail({
 emailService.sendMail({
     to: 'recipient@example.com',
     subject: 'Test Email',
-    html: '<p>This is a test email.</p>'
+    html: '<p>This is a test email.</p>',
+    attachments: [
+        {
+            filename: "report.png",
+            path: "/public-accessable-file-path"
+        }
+    ]
 });
 ```
 
 **Create an HTML Template**
-- create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/login.html) with placeholders wrapped in {{ }} e.g: login.html
+- create an HTML file inside your emailTemplatesDirectory (e.g., ./utils/email-templates/welcome.html) with placeholders wrapped in {{ }} e.g: welcome.html
 ```javascript
 
 <!DOCTYPE html>
@@ -60,12 +71,9 @@ emailService.sendMail({
 </head>
 <body>
     <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-        <h2>User Login Credentials</h2>
-        <p>Dear User,</p>
-        <p>Your login credentials are:</p>
-        <p><strong>Email:</strong> {{email}}</p>
-        <p><strong>Password:</strong> {{password}}</p>
-        <p>Login at: <a href="{{frontendUrl}}">Click Here</a></p>
+        <p>Welcome to ABC Portal!</p>
+        <p>Dear {{Username}},</p>
+        <p>Login to our portal: <a href="{{frontendUrl}}">{{frontendUrl}}</a></p>
         <p>Thank you!</p>
     </div>
 </body>
